@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script srs="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <table id="table">
+        <tr>
+            <th>
+                Name:
+            </th>
+            <th>
+                surname:
+            </th>
+        </tr>
+        <Script>
+            $(document).ready(function(){
+                $.getJSON("data.json",
+                function(data){
+                    console.log(data);
+                    var student=' ';
+                    $.each(data,function(key,value){
+                        student +='<tr>';
+                        student +='<td>'+value.name+'</td>';
+                        student +='<td>'+ value.surname+'</td>';
+                        student+='</tr>';
+                    });
+                        $('#table').append(student);
+                });
+            });
+        </Script>
+    </table>
+</body>
+</html>
